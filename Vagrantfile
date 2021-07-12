@@ -5,6 +5,7 @@ Vagrant.configure("2") do |config|
 	config.vm.hostname = "afsserver.test.example.com"
 	config.vm.provision "ansible" do |p|
 		p.playbook = "provision.yml"
+		p.galaxy_role_file = "requirements.yml"
 		p.host_vars = {
 			"afsserver" => {
 				"afs_cell" => "test.example.com",

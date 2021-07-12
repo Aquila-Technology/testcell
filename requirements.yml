@@ -1,0 +1,6 @@
+---
+collections:
+
+# Use the OpenAFS collection
+- name: openafs_contrib.openafs
+  version: '1.0.0'
