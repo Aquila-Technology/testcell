@@ -1,4 +1,14 @@
 ---
+- name: Prepare systems for running AFS
+  hosts: afs_cell
+  become: yes
+  tasks: 
+    - name: Fix /etc/hosts
+      template: src=etc/hosts.j2 dest=/etc/hosts
+
+    - name: Update all packages on the system
+      package: name="*" state=latest
+
 - name: Create a Kerberos realm
   hosts: afs_kdcs
   collections:
