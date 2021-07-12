@@ -46,10 +46,10 @@ Vagrant.configure("2") do |config|
                                     "afs_clients",
                                     "afs_admin_client" ],
             "afs_cell:vars" => {
-              	      "afs_cell" => "#{cell_name}",
-	              "afs_realm" => "#{realm_name}",
-	              "afs_afsd_opts" => "-dynroot-sparse -fakestat -afsdb",
-	              "ansible_user" => "vagrant"
+              "afs_cell" => "#{cell_name}",
+              "afs_realm" => "#{realm_name}",
+	      "afs_afsd_opts" => "-dynroot-sparse -fakestat -afsdb",
+	      "ansible_user" => "vagrant"
             }
           }
         end
