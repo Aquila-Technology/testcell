@@ -24,37 +24,39 @@ This project up a very simple test cell using Vagrant and Ansible.
     * I update all the packages before running any of the openafs roles.
   * It is possible to use this test cell without using Vagrant.
     * Set up an inventory that would look like this:
+```
+# Example Inventory
 
-    [afs_kdcs]
-    afsserver1
-    afsserver2
-    afsserver3
+[afs_kdcs]
+afsserver1
+afsserver2
+afsserver3
 
-    [afs_databases]
-    afsserver1
-    afsserver2
-    afsserver3
+[afs_databases]
+afsserver1
+afsserver2
+afsserver3
 
-    [afs_fileservers]
-    afsserver1
-    afsserver2
-    afsserver3
+[afs_fileservers]
+afsserver1
+afsserver2
+afsserver3
 
-    [afs_clients]
-    afsclient
+[afs_clients]
+afsclient
 
-    [afs_admin_client]
-    afsclient
+[afs_admin_client]
+afsclient
 
-    [afs_cell:children]
-    afs_databases
-    afs_fileservers
-    afs_clients
-    afs_admin_client
+[afs_cell:children]
+afs_databases
+afs_fileservers
+afs_clients
+afs_admin_client
 
-    [afs_cell:vars]
-    afs_cell=test.example.com
-    afs_realm=TEST.EXAMPLE.COM
-    afs_afsd_opts=-dynroot-sparse -fakestat -afsdb
-    ansible_user=USERNAME
-
+[afs_cell:vars]
+afs_cell=test.example.com
+afs_realm=TEST.EXAMPLE.COM
+afs_afsd_opts=-dynroot-sparse -fakestat -afsdb
+ansible_user=USERNAME
+```
