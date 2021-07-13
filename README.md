@@ -22,8 +22,9 @@ This project up a very simple test cell using Vagrant and Ansible.
   * The [`provision.yml`](./provision.yml) Ansible playbook is a slightly modified version of the [`realm.yaml`](https://github.com/openafs-contrib/ansible-openafs/blob/master/playbooks/realm.yaml) and [`cell.yaml`](https://github.com/openafs-contrib/ansible-openafs/blob/master/playbooks/cell.yaml) from the openafs_contrib.openafs Collection, with two minor tweaks:
     * I modify /etc/hosts so all the hostnames and IPs of the VMs are defined, which fixes some issues with Vagrant on VMware Fusion
     * I update all the packages before running any of the openafs roles.
-  * It is possible to use this test cell without using Vagrant.
-    * Set up an inventory that would look like this:
+* But I don't want to use Vagrant!
+  * It is possible to use this test cell without using Vagrant.  (You still need Ansible!)
+  * If you're familiar with Ansible, set up your own VMs, and set up an inventory that would look like this:
 ```
 # Example Inventory
 
