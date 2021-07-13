@@ -36,7 +36,7 @@ Vagrant.configure("2") do |config|
           # This sets up the Ansible inventory with the appropriate
           # variables for running Ansible
           p.groups = {
-            "afs_kdcs" => systems_array,
+            "afs_kdcs" => (systems_array[0]),
             "afs_databases" => systems_array,
             "afs_fileservers" => systems_array,
             "afs_clients" => ("afsclient"),
@@ -48,8 +48,8 @@ Vagrant.configure("2") do |config|
             "afs_cell:vars" => {
               "afs_cell" => "#{cell_name}",
               "afs_realm" => "#{realm_name}",
-	      "afs_afsd_opts" => "-dynroot-sparse -fakestat -afsdb",
-	      "ansible_user" => "vagrant"
+              "afs_afsd_opts" => "-dynroot-sparse -fakestat -afsdb",
+              "ansible_user" => "vagrant"
             }
           }
         end
