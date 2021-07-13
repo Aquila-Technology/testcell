@@ -40,8 +40,6 @@ Ever wanted to run [OpenAFS](https://www.openafs.org) but didn't know how to set
 
 [afs_kdcs]
 afsserver1
-afsserver2
-afsserver3
 
 [afs_databases]
 afsserver1
