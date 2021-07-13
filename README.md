@@ -1,30 +1,40 @@
 # Set up an OpenAFS cell on your personal device
-This project up a very simple test cell using Vagrant and Ansible.
+<img align="right" src="docs/vos_release.svg">
+
+Ever wanted to run [OpenAFS](https://www.openafs.org) but didn't know how to set it up?  Maybe you've used it but wanted to learn more about how to be an administrator?  The aim of this project is to make setting up a small test cell really easy.  We just need a couple tools like Ansible and Vagrant, and a functional Hypervisor such as VMWare or VirtualBox, and you're all set!
 
 ## Getting Started
-* Prerequeisites 
-  * Download and install [Vagrant](https://www.vagrantup.com/):
-    * On Linux and Windows, install from the [Vagrant download page](https://www.vagrantup.com/downloads).
-    * On MacOS, install from the above downloads page or via [Homebrew](https://brew.sh/):
-      `$ brew install vagrant`
-  * Download and install Ansible
-    * Install from your [local package manager](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-ansible-on-specific-operating-systems) or [from `pip`](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-and-upgrading-ansible-with-pip)
-  * Install a hypervisor.
-    * I've tested VMWare Fusion on macOS and libvirtd on Fedora.  VirtualBox is also a popular hypervisor to use with Vagrant and will work too.
-    * Vagrant will required a [provider](https://www.vagrantup.com/docs/providers/installation) for your hypervisor.
-* Start up the cell
-  * Run `vagrant up`
-  * Connect to the AFS Client VM by running `vagrant ssh afsclient`
-  * Here is a vagrant shell running some basic AFS commands including `vos release`:
-    ![Running vos reelase](./docs/vos_release.svg)
-* How does it work?
-  * This test cell is made possible through the very powerful and useful [Ansible Collection for OpenAFS](https://github.com/openafs-contrib/ansible-openafs).
-  * The [`provision.yml`](./provision.yml) Ansible playbook is a slightly modified version of the [`realm.yaml`](https://github.com/openafs-contrib/ansible-openafs/blob/master/playbooks/realm.yaml) and [`cell.yaml`](https://github.com/openafs-contrib/ansible-openafs/blob/master/playbooks/cell.yaml) from the openafs_contrib.openafs Collection, with two minor tweaks:
-    * I modify /etc/hosts so all the hostnames and IPs of the VMs are defined, which fixes some issues with Vagrant on VMware Fusion
-    * I update all the packages before running any of the openafs roles.
-* But I don't want to use Vagrant!
-  * It is possible to use this test cell without using Vagrant.  (You still need Ansible!)
-  * If you're familiar with Ansible, set up your own VMs, and set up an inventory that would look like this:
+* Prerequisites 
+  * Hardware Requirements:
+    The default configuration runs 4 separate VMs, so you need some resources
+    * At least 8G of RAM, 16G is reccomended
+    * At least 60G of free disk space
+    * A CPU that supports virtualization of some sort.
+    * An x86_64/amd64 CPU. (It might run on arm64 but I've not tried)
+  * If you don't have these kinds of resources, edit the [Vagrantfile](./Vagrantfile) and change the `N` value to 1.  This will limit the cell to only 1 server and 1 client.  You won't be able to do as much with it, and you miss out on some of the features OpenAFS has for running a cluster of hosts.
+## Installing
+* Download and install [Vagrant](https://www.vagrantup.com/):
+  * On Linux and Windows, install from the [Vagrant download page](https://www.vagrantup.com/downloads).
+  * On MacOS, install from the above downloads page or via [Homebrew](https://brew.sh/):
+    `$ brew install vagrant`
+* Download and install Ansible
+  * Install from your [local package manager](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-ansible-on-specific-operating-systems) or [from `pip`](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-and-upgrading-ansible-with-pip)
+* Install a hypervisor.
+  * I've tested VMWare Fusion on macOS and libvirtd on Fedora.  VirtualBox is also a popular hypervisor to use with Vagrant and will work too.
+  * Vagrant will required a [provider](https://www.vagrantup.com/docs/providers/installation) for your hypervisor.
+## Start up the cell
+* Clone this repository and `cd` into it.
+* Run `vagrant up`
+* Connect to the AFS Client VM by running `vagrant ssh afsclient`
+* The animated shell to the right is a terminal capture running some AFS commands in the Vagrant environemnt
+## How does it work?
+* This test cell is made possible through the very powerful and useful [Ansible Collection for OpenAFS](https://github.com/openafs-contrib/ansible-openafs).
+* The [`provision.yml`](./provision.yml) Ansible playbook is a slightly modified version of the [`realm.yaml`](https://github.com/openafs-contrib/ansible-openafs/blob/master/playbooks/realm.yaml) and [`cell.yaml`](https://github.com/openafs-contrib/ansible-openafs/blob/master/playbooks/cell.yaml) from the openafs_contrib.openafs Collection, with two minor tweaks:
+  * I modify /etc/hosts so all the hostnames and IPs of the VMs are defined, which fixes some issues with Vagrant on VMware Fusion
+  * I update all the packages before running any of the openafs roles.
+## But I don't want to use Vagrant!
+* It is possible to use this test cell without using Vagrant.  (You still need Ansible!)
+* If you're familiar with Ansible, set up your own VMs, and set up an inventory that would look like this:
 ```
 # Example Inventory
 
