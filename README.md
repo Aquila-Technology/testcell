@@ -10,7 +10,7 @@ This project up a very simple test cell using Vagrant and Ansible.
   * Download and install Ansible
     * Install from your [local package manager](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-ansible-on-specific-operating-systems) or [from `pip`](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-and-upgrading-ansible-with-pip)
   * Install a hypervisor.
-    * I've tested VMWare Fusion on macOS and libvirtd on Fedora.  
+    * I've tested VMWare Fusion on macOS and libvirtd on Fedora.  VirtualBox is also a popular hypervisor to use with Vagrant and will work too.
     * Vagrant will required a [provider](https://www.vagrantup.com/docs/providers/installation) for your hypervisor.
 * Start up the cell
   * Run `vagrant up`
