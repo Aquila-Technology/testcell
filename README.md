@@ -15,3 +15,5 @@ This project up a very simple test cell using Vagrant and Ansible.
 * Start up the cell
   * Run `vagrant up`
   * Connect to the AFS Client VM by running `vagrant ssh afsclient`
+  * Here is a vagrant shell running some basic AFS commands including `vos release`:
+    ![Running vos reelase](./docs/vos_release.svg)
