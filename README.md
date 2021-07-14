@@ -1,5 +1,4 @@
 # Set up an OpenAFS cell on your personal device
-<img align="right" src="docs/vos_release.svg">
 
 Ever wanted to run [OpenAFS](https://www.openafs.org) but didn't know how to set it up?  Maybe you've used it but wanted to learn more about how to be an administrator?  The aim of this project is to make setting up a small test cell really easy.  We just need a couple tools like Ansible and Vagrant, and a functional Hypervisor such as VMWare or VirtualBox, and you're all set!
 
@@ -26,7 +25,7 @@ Ever wanted to run [OpenAFS](https://www.openafs.org) but didn't know how to set
 * Clone this repository and `cd` into it.
 * Run `vagrant up`
 * Connect to the AFS Client VM by running `vagrant ssh afsclient`
-* The animated shell to the right is a terminal capture running some AFS commands in the Vagrant environemnt
+* Here's a [brief demo])(docs/vos_release.svg) of using Vagrant to run some AFS comments
 ## How does it work?
 * This test cell is made possible through the very powerful and useful [Ansible Collection for OpenAFS](https://github.com/openafs-contrib/ansible-openafs).
 * The [`provision.yml`](./provision.yml) Ansible playbook is a slightly modified version of the [`realm.yaml`](https://github.com/openafs-contrib/ansible-openafs/blob/master/playbooks/realm.yaml) and [`cell.yaml`](https://github.com/openafs-contrib/ansible-openafs/blob/master/playbooks/cell.yaml) from the openafs_contrib.openafs Collection, with two minor tweaks:
