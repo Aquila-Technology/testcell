@@ -25,7 +25,7 @@ Ever wanted to run [OpenAFS](https://www.openafs.org) but didn't know how to set
 * Clone this repository and `cd` into it.
 * Run `vagrant up`
 * Connect to the AFS Client VM by running `vagrant ssh afsclient`
-* Here's a [brief demo])(docs/vos_release.svg) of using Vagrant to run some AFS comments
+* Here's a [brief demo](./docs/vos_release.svg) of using Vagrant to run some AFS comments
 ## How does it work?
 * This test cell is made possible through the very powerful and useful [Ansible Collection for OpenAFS](https://github.com/openafs-contrib/ansible-openafs).
 * The [`provision.yml`](./provision.yml) Ansible playbook is a slightly modified version of the [`realm.yaml`](https://github.com/openafs-contrib/ansible-openafs/blob/master/playbooks/realm.yaml) and [`cell.yaml`](https://github.com/openafs-contrib/ansible-openafs/blob/master/playbooks/cell.yaml) from the openafs_contrib.openafs Collection, with two minor tweaks:
